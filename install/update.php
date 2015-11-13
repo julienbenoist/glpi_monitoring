@@ -1519,6 +1519,10 @@ function pluginMonitoringUpdate($current_version, $migrationname='Migration') {
          $migration->addField($newTable,
                               'append_id_hostname',
                               "tinyint(1) NOT NULL DEFAULT '0'");
+         $migration->addField($newTable,
+                              'monitoring_system',
+                              "varchar(255) NOT NULL DEFAULT 'shinken'");
+
       $migration->migrationOneTable($newTable);
 
 

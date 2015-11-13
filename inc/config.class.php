@@ -114,10 +114,10 @@ class PluginMonitoringConfig extends CommonDBTM {
                 'max'   => 1000)
       );
       echo "</td>";
-      echo "<td rowspan='4'>";
+      echo "<td rowspan='5'>";
       echo __('Timezones (for graph)', 'monitoring')."&nbsp:";
       echo "</td>";
-      echo "<td rowspan='4'>";
+      echo "<td rowspan='5'>";
          $a_timezones = $this->getTimezones();
 
          $a_timezones_selected = importArrayFromDB($this->fields['timezones']);
@@ -189,6 +189,17 @@ class PluginMonitoringConfig extends CommonDBTM {
       echo "<td>".__('Append id to hostname when generate conf', 'monitoring')." :</td>";
       echo "<td>";
       Dropdown::showYesNo("append_id_hostname", $this->fields['append_id_hostname']);
+      echo "</td>";
+      echo "</tr>";
+
+      echo "<tr class='tab_bg_1'>";
+      echo "<td>".__('Monitoring system', 'monitoring')." :</td>";
+      echo "<td>";
+      $elements = array('shinken', 'alignak');
+      Dropdown::showFromArray(
+              'monitoring_system',
+              $elements,
+              array("value"=>$this->fields['monitoring_system']));
       echo "</td>";
       echo "</tr>";
 

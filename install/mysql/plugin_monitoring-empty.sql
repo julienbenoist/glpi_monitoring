@@ -235,6 +235,7 @@ CREATE TABLE `glpi_plugin_monitoring_configs` (
   `extradebug` tinyint(1) NOT NULL DEFAULT '0',
   `nrpe_prefix_contener` tinyint(1) NOT NULL DEFAULT '0',
   `append_id_hostname` tinyint(1) NOT NULL DEFAULT '0',
+  `monitoring_system` varchar(255) NOT NULL DEFAULT 'shinken',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
