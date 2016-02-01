@@ -195,7 +195,9 @@ class PluginMonitoringConfig extends CommonDBTM {
       echo "<tr class='tab_bg_1'>";
       echo "<td>".__('Monitoring system', 'monitoring')." :</td>";
       echo "<td>";
-      $elements = array('shinken', 'alignak');
+      $elements = array(
+         'shinken' => 'shinken',
+         'alignak' => 'alignak');
       Dropdown::showFromArray(
               'monitoring_system',
               $elements,
@@ -270,6 +272,12 @@ class PluginMonitoringConfig extends CommonDBTM {
       }
    }
 
+
+   static function getMonitoringSystem() {
+      $pmConfig = new self();
+      $pmConfig->getFromDB(1);
+      return $pmConfig->fields['monitoring_system'];
+   }
 }
 
 ?>

@@ -45,7 +45,8 @@ if (!defined('GLPI_ROOT')) {
 }
 
 class PluginMonitoringAlignak extends CommonDBTM {
-   
+
+  
 
 
 }

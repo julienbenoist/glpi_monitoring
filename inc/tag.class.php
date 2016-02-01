@@ -56,7 +56,10 @@ class PluginMonitoringTag extends CommonDBTM {
    *
    **/
    static function getTypeName($nb=0) {
-      return __('Tag', 'monitoring');
+      if (PluginMonitoringConfig::getMonitoringSystem() == 'shinken') {
+         return __('Tag', 'monitoring');
+      }
+      return __('Alignak Backend', 'monitoring');
    }
 
 
@@ -69,8 +72,9 @@ class PluginMonitoringTag extends CommonDBTM {
    function getRights($interface='central') {
 
       $values = parent::getRights();
-      unset($values[CREATE]);
-
+      if (PluginMonitoringConfig::getMonitoringSystem() == 'shinken') {
+         unset($values[CREATE]);
+      }
       return $values;
    }
 
@@ -79,7 +83,7 @@ class PluginMonitoringTag extends CommonDBTM {
    function getSearchOptions() {
       $tab = array();
 
-      $tab['common'] = __('Commands', 'monitoring');
+      $tab['common'] = __('Tags', 'monitoring');
 
 		$tab[1]['table']     = $this->getTable();
 		$tab[1]['field']     = 'tag';

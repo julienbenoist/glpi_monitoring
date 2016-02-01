@@ -206,7 +206,7 @@ if (Session::haveRight("config", READ)) {
    echo "</th>";
 
    echo "<th>";
-   echo "<a href='".$CFG_GLPI['root_doc']."/plugins/monitoring/front/tag.php'>".__('Tag', 'monitoring')."</a>";
+   echo "<a href='".$CFG_GLPI['root_doc']."/plugins/monitoring/front/tag.php'>".PluginMonitoringTag::getTypeName()."</a>";
    echo "</th>";
    echo "</tr>";
 

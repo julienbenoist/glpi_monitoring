@@ -111,6 +111,15 @@ function plugin_init_monitoring() {
              "lib/jqueryplugins/tagbox/js/jquery.tagbox.min.js"
              );
 
+        if (PluginMonitoringConfig::getMonitoringSystem() == 'alignak') {
+           $PLUGIN_HOOKS['add_css']['monitoring'][] = 'lib/angular/angular-material.min.css';
+           $PLUGIN_HOOKS['add_javascript']['monitoring'][] = 'lib/angular/angular.min.js';
+           $PLUGIN_HOOKS['add_javascript']['monitoring'][] = 'lib/angular/angular-animate.min.js';
+           $PLUGIN_HOOKS['add_javascript']['monitoring'][] = 'lib/angular/angular-aria.min.js';
+           $PLUGIN_HOOKS['add_javascript']['monitoring'][] = 'lib/angular/angular-messages.min.js';
+           $PLUGIN_HOOKS['add_javascript']['monitoring'][] = 'lib/angular/angular-material.min.js';
+           $PLUGIN_HOOKS['add_javascript']['monitoring'][] = 'js/backendalignak.js';
+        }
          $plugin = new Plugin();
          if ($plugin->isActivated('monitoring')) {
             if (isset($_SESSION["glpiactiveprofile"])
